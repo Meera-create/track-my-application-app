@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application incomplete",
+        classes: "back-btn-red"
+        
+      }) }}
+
+   
+
+      <p>
+        Please re-submit your visa application OR contact us at home.office-visa@service.gov.uk
+      </p>
+
+    
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Back",
+  classes: "govuk-button--secondary",
+  href: "/visa.html"
+ 
+}) }}
+
+      <p>
+        <a href="#">
+          What did you think of this service?
+        </a> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

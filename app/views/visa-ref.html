@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Tracking my visa application
+      </h1>
+
+      <form class="form" action="/visa-name-verify.html" onSubmit="myFunction(event)">
+<!--<form class="form" action="/confirm-visa.html" method="post">-->
+  
+<p>What is your application reference number?</p>
+<div class="govuk-form-group">
+  <input class="govuk-input" id="event-name" name="eventName" type="text">
+  <br>
+   <div id="visa-ref-hint" class="govuk-hint">
+      It should be 12 numbers - for example 133058912349
+    </div>
+    
+</div>
+
+
+
+<!--form validation-->
+
+<p id="ref-error" class="ref-error"></p>
+
+<script>
+function myFunction(event) {
+  let x = document.getElementById("event-name").value;
+  let y = x.length;
+
+  if (isNaN(x) || y !== 12) {
+    event.preventDefault();   // STOP page changing
+    document.getElementById("ref-error").innerHTML = "Input not valid";
+    return false;
+  }
+return true;
+
+}
+
+</script>
+
+
+
+
+        {{ govukButton({
+  text: "Continue",
+  onClick: "myFunction(event)"
+
+}) }}
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
