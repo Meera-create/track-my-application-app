@@ -10,6 +10,8 @@
   </header>
 {% endblock %}
 
+
+
 {% block containerStart %}
   {{ govukBreadcrumbs({
     items: [
@@ -26,9 +28,11 @@
       }
     ]
   }) }}
-{% endblock %}
+{% endblock %} 
 
 {% block content %}
+
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -83,7 +87,7 @@
 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          Other services
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
@@ -109,4 +113,26 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "#",
+         text: "Privacy policy"
+       },
+       {
+         href: "#",
+         text: "Manage your settings"
+       },
+       {
+         href: "#",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

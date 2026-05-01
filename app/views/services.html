@@ -20,19 +20,21 @@
         What service would you like to access?
       </h1>
 
-      <form class="form" action="/visa-email.html" method="post">
+      <form class="form" method="post" onsubmit="return validateOptions(event)">
 
         <p>
           Select the service from the options below 
         </p>
+        <p id="error-message" class="govuk-error-message"></p>
 
         <div class="govuk-form-group">
   <label class="govuk-label" for="sort">
     Choose one option
   </label>
   <select class="govuk-select" id="sort" name="sort">
+    <option value="">Choose one option</option>
     <option value="visa">Track my visa application</option>
-    <option value="passport" selected>Track my passport application</option>
+    <option value="passport">Track my passport application</option>
     <option value="HMLR">Track HM Land registry applications</option>
     <option value="driving">Track driving licence applications</option>
   </select>
@@ -40,14 +42,114 @@
 
 
 
-        {{ govukButton({
-          text: "Continue",
-          href: "/visa-email.html"
-        }) }}
+<!--<script>
+
+  let errormessage= document.getElementById("sort").value;
+  console.log(errormessage);
+
+  function validateOptions(event){
+    let serviceOption = errormessage.innerHTML;
+   
+    if(serviceOption === " "){
+      event.preventDefault();
+      serviceOption = "Error, Please choose a service from the list";
+      console.log(errormessage);
+      return false
+    }
+    return errormessage
+  }
+
+</script> -->
+
+<!--<script>
+
+function validateOptions(event){
+
+  let serviceOption = document.getElementById("sort").value;
+
+  if(serviceOption === ""){
+    event.preventDefault();
+
+    let x = document.getElementById("error-message").innerHTML =
+      "Error: Please choose a service from the list";
+    console.log(x);
+    return false;
+  }
+
+  else if(serviceOption === "visa"){
+    return true
+  }
+
+  return true;
+}
+
+console.log(document.getElementById("error-message"));
+
+</script> -->
+
+<script>
+
+function validateOptions(event){
+
+  event.preventDefault();
+
+  let serviceOption = document.getElementById("sort").value;
+
+
+   if(serviceOption === ""){
+    document.getElementById("error-message").innerHTML =
+    "Error: Please choose a service from the list";
+    return false;
+  }
+
+  if(serviceOption === "visa"){
+    window.location.href = "/visa-email.html";
+  }
+
+  else if(serviceOption === "passport" || serviceOption ==="HMLR" || serviceOption === "driving"){
+    window.location.href = "/page-not-found.html";
+    
+  }
+
+  
+
+
+}
+</script>
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+  
 
       </form>
 
     </div>
   </div>
 
+{% endblock %}
+
+
+<!--edited footer-->
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "#",
+         text: "Privacy policy"
+       },
+       {
+         href: "#",
+         text: "Manage your settings"
+       },
+       {
+         href: "#",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

@@ -20,10 +20,11 @@
         Tracking my visa application
       </h1>
 
-      <form class="form" method="post">
+      <form class="form" method="post" action="/confirmation" onsubmit="return verifyName(event)" >
 
       <p>What is your last name?</p>
 <div class="govuk-form-group">
+  <p class="ref-error" id="error-name"></p>
   <input class="govuk-input" id="event-name" name="eventName" type="text">
   <br>
    <div id="last-name-hint" class="govuk-hint">
@@ -32,9 +33,58 @@
     
 </div>
 
+<script>
+  function verifyName(event){
+
+  
+
+  let userName = document.getElementById("event-name").value;
+  let nameCheck = Array.from(userName).every((char)=>
+  /[A-Za-z]/.test(char));
+
+
+  if (nameCheck === false ){
+    document.getElementById("error-name").innerHTML =
+    "Error: Enter only letters - no numbers";
+   
+    return false;
+    
+  }
+  
+return true;
+   
+  }
+
+
+ </script>
+
+ <!--
+
+let isAlphabetic = Array.from(s).every((char) =>
+    /[A-Za-z]/.test(char));
+console.log(isAlphabetic);
+
+    function myFunction(event) {
+  let x = document.getElementById("event-name").value;
+  let y = x.length;
+
+  if (isNaN(x) || y !== 12) {
+    event.preventDefault();   // STOP page changing
+    document.getElementById("ref-error").innerHTML = "Input not valid";
+    return false;
+  }
+return true;
+
+}
+    
+    -->
+
+
         {{ govukButton({
           text: "Continue",
-          href: "/confirmation.html"
+          onClick: "verifyName(event)"
+        
+          
         }) }}
 
       </form>
@@ -42,4 +92,26 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "#",
+         text: "Privacy policy"
+       },
+       {
+         href: "#",
+         text: "Manage your settings"
+       },
+       {
+         href: "#",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

@@ -20,12 +20,13 @@
         Tracking my visa application
       </h1>
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="/visa-ref" method="post" onsubmit="return validateDate(event)">
 
         <p>
           When was your application submitted?
         </p>
 
+        <p id="error-date" class="ref-error"></p>
 
         <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -63,12 +64,32 @@
   </fieldset>
 </div>
 
+<script>
+
+function validateDate(event){
+  
+  let dayValue =document.getElementById("passport-issued-day").value;
+  let monthValue = document.getElementById("passport-issued-month").value;
+  let yearValue = document.getElementById("passport-issued-year").value;
+
+
+if (dayValue <= 0 || dayValue >=32 ||
+monthValue <= 0 || monthValue >=13 
+  || yearValue <= 1999 || yearValue >= 2027) {
+    document.getElementById("error-date").innerHTML = " Error - Enter a valide date"
+    return false;
+  }
+  return true;
+}
+
+</script>
+
 
 
 
         {{ govukButton({
           text: "Continue",
-          href:"/visa-ref.html"
+          onClick: "validateDate(event)"
         }) }}
 
       </form>
@@ -76,4 +97,26 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "#",
+         text: "Privacy policy"
+       },
+       {
+         href: "#",
+         text: "Manage your settings"
+       },
+       {
+         href: "#",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

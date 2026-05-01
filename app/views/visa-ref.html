@@ -20,7 +20,7 @@
         Tracking my visa application
       </h1>
 
-      <form class="form" action="/visa-name-verify.html" onSubmit="myFunction(event)">
+      <form class="form" action="visa-name-verify.html" onSubmit="myFunction(event)">
 <!--<form class="form" action="/confirm-visa.html" method="post">-->
   
 <p>What is your application reference number?</p>
@@ -71,4 +71,26 @@ return true;
     </div>
   </div>
 
+{% endblock %}
+
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "#",
+         text: "Privacy policy"
+       },
+       {
+         href: "#",
+         text: "Manage your settings"
+       },
+       {
+         href: "#",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

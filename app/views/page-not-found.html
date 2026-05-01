@@ -1,9 +1,14 @@
 {% extends "layouts/main.html" %}
 
-
-
 {% block pageTitle %}
-  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/services.html"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -11,38 +16,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {{ govukPanel({
-        titleText: "Application incomplete",
-        classes: "back-btn-red"
-        
-      }) }}
-
-   
+      <h1 class="govuk-heading-l ref-error">
+        Page not found
+      </h1>
 
       <p>
-        Please re-submit your visa application OR contact us at home.office-visa@service.gov.uk
+        You can return to the <a href="/services.html">services</a> page to try again.
       </p>
-
-    
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
-{{ govukButton({
-  text: "Back",
-  classes: "govuk-button--secondary",
-  href: "/visa.html"
- 
-}) }}
 
       <p>
-        <a href="#">
-          What did you think of this service?
-        </a> (takes 30 seconds)
+        <a href="/path/of/page">Get help or contact us</a>.
       </p>
-
 
     </div>
   </div>
 
+
+  
 {% endblock %}
 
 {% block govukFooter %}

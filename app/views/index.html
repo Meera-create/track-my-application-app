@@ -17,4 +17,17 @@
   </div>
 </div>
 
+<!--{% endblock %}-->
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        { href: "/privacy", text: "pp policy" },
+        { href: "/manage-prototype", text: "pp your prototype" },
+        { href: "/manage-prototype/clear-data", text: "pp data" }
+      ],
+      visuallyHiddenTitle: "Footer links"
+    }
+  }) }}
 {% endblock %}

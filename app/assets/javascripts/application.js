@@ -6,7 +6,7 @@
 window.GOVUKPrototypeKit.documentReady(() => {
   // Add JavaScript here
 
-document.getElementById("continueBtn").addEventListener("click", function (event) {
+document.getElementById("continueBtn").addEventListener("click", function(event) {
     event.preventDefault();
 
     const selectedOption = document.querySelector(
