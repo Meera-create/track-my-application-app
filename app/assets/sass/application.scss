@@ -17,5 +17,14 @@
 }
 
 
+.govuk-breadcrumbs--inverse{
+  background-color: #FFFF;
+  color: #1D70B8;  
+}
+
+
+.govuk-breadcrumbs--inverse .govuk-breadcrumbs__link:link{
+  color: black;
+}
 
 
