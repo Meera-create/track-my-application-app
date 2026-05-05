@@ -22,17 +22,15 @@
 
       <form class="form" method="post" onsubmit="return validateOptions(event)">
 
-        <p>
-          Select the service from the options below 
-        </p>
+       
         <p id="error-message" class="govuk-error-message"></p>
 
         <div class="govuk-form-group">
   <label class="govuk-label" for="sort">
-    Choose one option
+    Select the application type you would like to track 
   </label>
   <select class="govuk-select" id="sort" name="sort">
-    <option value="">Choose one option</option>
+    <option value="">Select one option</option>
     <option value="visa">Track my visa application</option>
     <option value="passport">Track my passport application</option>
     <option value="HMLR">Track HM Land registry applications</option>
@@ -42,50 +40,8 @@
 
 
 
-<!--<script>
 
-  let errormessage= document.getElementById("sort").value;
-  console.log(errormessage);
-
-  function validateOptions(event){
-    let serviceOption = errormessage.innerHTML;
-   
-    if(serviceOption === " "){
-      event.preventDefault();
-      serviceOption = "Error, Please choose a service from the list";
-      console.log(errormessage);
-      return false
-    }
-    return errormessage
-  }
-
-</script> -->
-
-<!--<script>
-
-function validateOptions(event){
-
-  let serviceOption = document.getElementById("sort").value;
-
-  if(serviceOption === ""){
-    event.preventDefault();
-
-    let x = document.getElementById("error-message").innerHTML =
-      "Error: Please choose a service from the list";
-    console.log(x);
-    return false;
-  }
-
-  else if(serviceOption === "visa"){
-    return true
-  }
-
-  return true;
-}
-
-console.log(document.getElementById("error-message"));
-
-</script> -->
+  
 
 <script>
 
@@ -111,8 +67,6 @@ function validateOptions(event){
     
   }
 
-  
-
 
 }
 </script>
@@ -124,6 +78,31 @@ function validateOptions(event){
   
 
       </form>
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Other services
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Update my details
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Get help
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
     </div>
   </div>
@@ -146,7 +125,7 @@ function validateOptions(event){
        },
        {
          href: "#",
-         text: "Clear data"
+         text: "Change language"
        }
      ],
      visuallyHiddenTitle: "Footer links"

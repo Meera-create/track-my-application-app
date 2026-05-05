@@ -13,6 +13,7 @@
 
 {% block content %}
 
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -29,10 +30,10 @@
        
       </h1>
     </legend>-->
-    <div id="changedName-hint" class="govuk-hint">
+    <div id="changedName-hint">
      <p>Have you  received a confirmation email after submitting your visa application? </p>
      <br>
-     <p>This email should be from: noreply@visas-immigration.service.gov.uk</p>
+     <p class="govuk-hint">This email should be from: noreply@visas-immigration.service.gov.uk</p>
     </div>
     <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
       <div class="govuk-radios__item">
@@ -60,6 +61,31 @@
 
       </form>
 
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Other services
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Update my details
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Get help
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      
     </div>
   </div>
 
@@ -79,7 +105,7 @@
        },
        {
          href: "#",
-         text: "Clear data"
+         text: "Change language"
        }
      ],
      visuallyHiddenTitle: "Footer links"
